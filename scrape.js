@@ -3,11 +3,20 @@ const fs = require('fs');
 const colors = require('colors');
 const Scraper = require('images-scraper');
 
-//Get the arguments
+//Usage: node scraper <keyword> <amount> <download path>
+
 const args = process.argv.slice(2);
+
+//Test to see if all the arguments are there | needs refactoring (needs all arguments to work)
+if (args.length != 3) {
+	console.log("Invalid usage. Usage: node scraper <keyword> <amount> <download path>");
+	return;
+}
+
+//Parse the arguments | needs refactoring (needs all arguments to work)
 const keyword = args[0];
 const amount = args[1];
-const downloadPath = __dirname + "/download/" + keyword + "/";
+const downloadPath = args[2];
 
 //Create new file directory
 if (!fs.existsSync(downloadPath))
